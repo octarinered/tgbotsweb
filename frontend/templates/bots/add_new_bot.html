@@ -1,0 +1,32 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}Your bots{% endblock title %}
+
+{% block content %}
+    <h1>Your bots</h1>
+
+тут добавляют ботов
+
+
+<form class="crud_form" method="POST">
+    {% csrf_token %}
+    <div>
+        {% for field in form %}
+        <div class="form_group">
+            {{ field.label_tag }}
+            <div class="field">{{ field }}</div>
+            {% if field.errors%}
+            {% for error in field.errors %}
+            <div class="alert alert_danger">
+                {{error}}
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+    <button type="submit" class="crud_button">Создать</button>
+</form>
+
+{% endblock content %}

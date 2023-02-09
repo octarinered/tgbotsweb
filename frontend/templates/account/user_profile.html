@@ -1,0 +1,21 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}Profile{% endblock title %}
+
+{% block content %}
+Your profile 
+<br>
+
+Мейл юзера:
+{{ user.email }}
+
+<br>
+Ваш емейл: 
+{{ user.id }}
+
+<p><a href="{% url 'all_bot_accounts' %}">Ваши боты</a>
+<p><a href="{% url 'add_new_bot_account' %}">Добавить бота</a>
+
+
+{% endblock content %}

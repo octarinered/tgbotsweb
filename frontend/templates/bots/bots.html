@@ -1,0 +1,14 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}Your bots{% endblock title %}
+
+{% block content %}
+    <h1>Your bots</h1>
+    здесь будут ваши боты
+<br>
+
+    <p><a href="{% url 'add_new_bot_account' %}">Добавить бота</a>
+
+
+{% endblock content %}

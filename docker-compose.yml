@@ -1,0 +1,27 @@
+version: '3'
+services:
+  back: # ----------------------------------------------------------
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+    environment:
+      - "DJANGO_SECRET_KEY=django-insecure-zwgan)sj+x-xs0-qysslq*y8x8a5pctp#5whew-qot&obfus4#"
+      - "DJANGO_DEBUG=True"
+  db: # ----------------------------------------------------------
+    image: postgres:11
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+volumes:
+  postgres_data:
+
+
